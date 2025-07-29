@@ -1,0 +1,218 @@
+:root {
+  --bg: #f4f4f4;
+  --text: #222;
+  --card-bg: #ffffff;
+  --border: #ddd;
+  --highlight: #f0f8ff;
+  --button-bg: #4caf50;
+  --button-text: #ffffff;
+  --winner-text: #2196f3;
+}
+
+body.dark {
+  --bg: #121212;
+  --text: #eee;
+  --card-bg: #1e1e1e;
+  --border: #333;
+  --highlight: #2a2a2a;
+  --button-bg: #81c784;
+  --button-text: #000;
+  --winner-text: #90caf9;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Layout wrapper */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* GAME PAGE */
+.game {
+  background: var(--card-bg);
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 12px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  color: var(--text);
+}
+
+.square:hover {
+  background: var(--highlight);
+}
+
+.square.highlight {
+  background-color: #ffeb3b;
+  color: #000;
+  font-weight: bold;
+  animation: glow 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #ffeb3b;
+  }
+  to {
+    box-shadow: 0 0 20px #ffd600;
+  }
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 5px;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+.winner {
+  font-size: 1.5rem;
+  color: var(--winner-text);
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+/* LOGIN PAGE */
+.login-container {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background-color: var(--card-bg);
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 0 10px #00ffcc33;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 350px;
+}
+
+.login-box h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.login-box input {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--highlight);
+  color: var(--text);
+  font-size: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  outline: none;
+  transition: 0.2s ease-in-out;
+}
+
+.login-box input:focus {
+  box-shadow: 0 0 5px #00ffcc;
+}
+
+.login-box button {
+  padding: 0.8rem 1rem;
+  background-color: #00ffcc;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s ease;
+}
+
+.login-box button:hover {
+  background-color: #00ddb0;
+}
+
+/* SCOREBOARD */
+table {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto 0;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 10px;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .board {
+    grid-template-columns: repeat(3, 80px);
+    gap: 8px;
+  }
+
+  .square {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+  }
+}
